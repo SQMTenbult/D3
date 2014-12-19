@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<style>
+
+ul.tm-menu li {
+	display: inline-block;	
+	margin-right: 5px;
+	background:#09F;
+	padding:2px;
+	cursor: pointer;
+}
+ul.tm-menu li.tm-selected {
+	background: #0CF;	
+}
+
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.dot {
+  stroke: #000;
+}
+
+</style>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+
+<script>
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom, parameter = "PuntenLost";
+
+var menuItems = [
+				{id: "Gelijk", name: "Gelijk"},
+				{id: "Verlies", name: "Verlies"},
+				{id: "WedstrijdenWon", name: "Wedstrijden Gewonnen"},
+				{id: "WedstrijdenLost", name: "Wedstrijden Verloren"},
+				{id: "GamesWon", name: "Sets Gewonnen"},
+				{id: "GamesLost", name: "Sets Verloren"},
+				{id: "PuntenWon", name: "Punten Gewonnen"},
+				{id: "PuntenLost", name: "Punten Verloren"},
+				];
+
+var x = d3.scale.linear().range([0, width]);
+var y = d3.scale.linear().range([height, -1]);
+
+var color = d3.scale.category10();
+
+var xAxis = d3.svg.axis().scale(x).orient("bottom");
+var yAxis = d3.svg.axis().scale(y).orient("left");
+
+var menu = d3.select("body").append("ul")
+    .attr("class", "tm-menu")
+    .style("width", width + margin.left + margin.right + "px");
+
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+function clickMenu(d) {
+    if (parameter === d.id)
+        return;
+    d3.select("ul.tm-menu").selectAll('li').classed('tm-selected', false);
+    d3.select(this).classed('tm-selected', true);
+
+    parameter = d.id;
+
+    updateChart();
+}
+
+function updateChart() {
+    svg.selectAll('.dot')
+        .transition()
+        .duration(1000)
+        .attr('cx', function(d) {
+            return x(d.data[parameter]);
+			
+        })
+		
+	svg.select(".x.axis")
+	   .call(xAxis);
+	
+}
+
+d3.json("data_stand.json", function(error, data) {
+    data.forEach(function(d) {
+        d.data.Winst = +d.data.Winst;
+        d.data[parameter] = +d.data[parameter];
+    });
+
+    x.domain(d3.extent(data, function(d) { return d.data[parameter]; })).nice();
+    y.domain(d3.extent(data, function(d) { return d.data.Winst; })).nice();
+
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis);
+
+    svg.selectAll(".dot")
+        .data(data)
+        .enter().append("circle")
+        .attr("class", "dot")
+        .attr("r", 3.5)
+        .attr("cx", function(d) { return x(d.data[parameter]); })
+        .attr("cy", function(d) { return y(d.data.Winst); })
+        .style("fill", function(d) { return color(d.Club); });
+
+    menu.selectAll("li")
+        .data(menuItems)
+        .enter()
+        .append("li")
+        .attr("class", "tm-menu-item")
+        .text(function(d) { return d.name; })
+        .classed('tm-selected', function(d, i) { return i == 0; })
+        .on('click', clickMenu);
+
+});
+</script>

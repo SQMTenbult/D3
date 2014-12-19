@@ -1,0 +1,129 @@
+[{
+    "id": 1,
+    "Club": "LEUSDER BC 1",
+	"data": {
+    "Stand": 57,
+    "Gespeeld": 10,
+    "Winst": 9,
+    "Gelijk": 1,
+    "Verlies": 0,
+    "WedstrijdenWon": 57,
+    "WedstrijdenLost": 23,
+    "GamesWon": 123,
+    "GamesLost": 52,
+    "PuntenWon": 3410,
+    "PuntenLost": 2796
+	}
+}, {
+    "id": 2,
+    "Club": "DE IJSSEL 1",
+	"data": {
+    "Punten": 54,
+    "Gespeeld": 10,
+    "Winst": 6,
+    "Gelijk": 2,
+    "Verlies": 2,
+    "WedstrijdenWon": 54,
+    "WedstrijdenLost": 26,
+    "GamesWon": 113,
+    "GamesLost": 70,
+    "PuntenWon": 3379,
+    "PuntenLost": 3064
+	}
+}, {
+    "id": 3,
+    "Club": "DE LOBBERS 2",
+	"data": {
+    "Punten": 46,
+    "Gespeeld": 10,
+    "Winst": 5,
+    "Gelijk": 1,
+    "Verlies": 4,
+    "WedstrijdenWon": 46,
+    "WedstrijdenLost": 34,
+    "GamesWon": 103,
+    "GamesLost": 77,
+    "PuntenWon": 3341,
+    "PuntenLost": 3088
+	}
+}, {
+    "id": 4,
+    "Club": "DRUTEN 2",
+	"data": {
+    "Punten": 44,
+    "Gespeeld": 10,
+    "Winst": 5,
+    "Gelijk": 3,
+    "Verlies": 2,
+    "WedstrijdenWon": 44,
+    "WedstrijdenLost": 36,
+    "GamesWon": 98,
+    "GamesLost": 84,
+    "PuntenWon": 3337,
+    "PuntenLost": 3216
+	}
+}, {
+    "id": 5,
+    "Club": "STUBAN NSBC 4",
+	"data": {
+    "Punten": 41,
+    "Gespeeld": 10,
+    "Winst": 4,
+    "Gelijk": 2,
+    "Verlies": 4,
+    "WedstrijdenWon": 41,
+    "WedstrijdenLost": 39,
+    "GamesWon": 96,
+    "GamesLost": 91,
+    "PuntenWon": 3415,
+    "PuntenLost": 3420
+	}
+}, {
+    "id": 6,
+    "Club": "T VEEN 2",
+	"data": {
+    "Punten": 32,
+    "Gespeeld": 10,
+    "Winst": 3,
+    "Gelijk": 0,
+    "Verlies": 7,
+    "WedstrijdenWon": 32,
+    "WedstrijdenLost": 48,
+    "GamesWon": 83,
+    "GamesLost": 106,
+    "PuntenWon": 3253,
+    "PuntenLost": 3408
+	}
+}, {
+    "id": 7,
+    "Club": "RICOCHET 1",
+	"data": {
+    "Punten": 32,
+    "Gespeeld": 10,
+    "Winst": 1,
+    "Gelijk": 4,
+    "Verlies": 5,
+    "WedstrijdenWon": 32,
+    "WedstrijdenLost": 48,
+    "GamesWon": 79,
+    "GamesLost": 113,
+    "PuntenWon": 3370,
+    "PuntenLost": 3620
+	}
+}, {
+    "id": 8,
+    "Club": "BAN 6",
+	"data": {
+    "Punten": 14,
+    "Gespeeld": 10,
+    "Winst": 0,
+    "Gelijk": 1,
+    "Verlies": 9,
+    "WedstrijdenWon": 14,
+    "WedstrijdenLost": 66,
+    "GamesWon": 38,
+    "GamesLost": 140,
+    "PuntenWon": 2679,
+    "PuntenLost": 3572
+	}
+}]
